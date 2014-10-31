@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
+ *
+ *  Use of this software is subject to the terms and conditions of 
+ *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
+ -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/numberField"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:inputType="number"
-        android:textStyle="bold" />
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:padding="5dp" >
+
+        <EditText
+            android:id="@+id/numberField"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:inputType="number"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/clearTextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/cancelicon" />
+    </FrameLayout>
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -33,34 +54,34 @@
             android:paddingTop="10dp" >
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/dialKey1"
                 style="@style/button_dialpad"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="1" />
+                android:text="@string/dialPad1" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/dialKey2"
                 style="@style/button_dialpad"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="2" />
+                android:text="@string/dialPad2" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/dialKey3"
                 style="@style/button_dialpad"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="3" />
+                android:text="@string/dialPad3" />
         </TableRow>
     </TableLayout>
 
@@ -82,7 +103,7 @@
             android:paddingTop="10dp" >
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/dialKey4"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -90,10 +111,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="4" />
+                android:text="@string/dialPad4" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/dialKey5"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -101,10 +122,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="5" />
+                android:text="@string/dialPad5" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/dialKey6"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -112,7 +133,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="6" />
+                android:text="@string/dialPad6" />
         </TableRow>
     </TableLayout>
 
@@ -134,7 +155,7 @@
             android:paddingTop="10dp" >
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/dialKey7"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -142,10 +163,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="7" />
+                android:text="@string/dialPad7" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/dialKey8"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -153,10 +174,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="8" />
+                android:text="@string/dialPad8" />
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/dialKey9"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -164,7 +185,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="9" />
+                android:text="@string/dialPad9" />
         </TableRow>
     </TableLayout>
 
@@ -186,7 +207,7 @@
             android:paddingTop="10dp" >
 
             <Button
-                android:id="@+id/buttonpound"
+                android:id="@+id/dialKeyPound"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -194,10 +215,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="#" />
+                android:text="@string/dialPadPound" />
 
             <Button
-                android:id="@+id/button0"
+                android:id="@+id/dialKey0"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -205,10 +226,10 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="0" />
+                android:text="@string/dialPad0" />
 
             <Button
-                android:id="@+id/buttonstar"
+                android:id="@+id/dialKeyStar"
                 style="@style/button_dialpad"
                 android:layout_width="10dp"
                 android:layout_marginBottom="5dp"
@@ -216,13 +237,14 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.33"
-                android:text="*" />
+                android:text="@string/dialPadStar" />
         </TableRow>
     </TableLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal" >
 
         <Button
@@ -231,8 +253,7 @@
             android:layout_width="fill_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:text="Call" />
+            android:text="@string/callBtnTxt" />
 
         <Button
             android:id="@+id/buttonHangup"
@@ -240,8 +261,7 @@
             android:layout_width="fill_parent"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:text="Hangup"
+            android:text="@string/hangupBtnTxt"
             android:visibility="invisible" />
     </RelativeLayout>
 

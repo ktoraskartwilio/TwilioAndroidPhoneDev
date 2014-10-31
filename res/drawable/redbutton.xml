@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+ *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
+ *
+ *  Use of this software is subject to the terms and conditions of 
+ *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
+ -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" >
         <shape>

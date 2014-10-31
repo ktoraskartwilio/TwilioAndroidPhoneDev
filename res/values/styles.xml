@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
+ *
+ *  Use of this software is subject to the terms and conditions of 
+ *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
+ -->
 <resources>
-     <style name="button_call">
-     	<item name="android:textColor">#ffffff</item>
+
+    <style name="button_call">
+        <item name="android:textColor">#ffffff</item>
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/greenbutton</item>
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">60dp</item>
         <item name="android:layout_marginBottom">12dp</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:layout_marginRight">2dp</item>
@@ -16,20 +23,18 @@
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/redbutton</item>
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">60dp</item>
         <item name="android:layout_marginBottom">12dp</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:layout_marginRight">2dp</item>
-    </style>  
- 
+    </style>
+
     <style name="button_dialpad">
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">#0099cc</item>
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/dialerbutton</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
- 
-    </style>    
-    
-    
+    </style>
+
 </resources>
