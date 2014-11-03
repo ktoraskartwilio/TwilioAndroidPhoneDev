@@ -1,41 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
  *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
  *
  *  Use of this software is subject to the terms and conditions of 
  *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
- -->
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <FrameLayout
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:padding="5dp" >
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/countryCodeSpinner"
+            android:layout_width="40dp"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:singleLine="true"
+            android:entries="@array/country_arrays"
+            android:prompt="@string/country_prompt"
+            />
 
         <EditText
             android:id="@+id/numberField"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:background="@android:color/transparent"
             android:inputType="number"
+            android:maxLength="15"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/clearTextBtn"
+             android:layout_marginBottom="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="20dp"
+            android:singleLine="true"
+            android:layout_gravity="right|center"
             android:background="@drawable/cancelicon" />
-    </FrameLayout>
+    </LinearLayout>
 
     <TableLayout
         android:layout_width="fill_parent"

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
+ *
+ *  Use of this software is subject to the terms and conditions of 
+ *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="country_prompt">Choose a country</string>
+ 
+    <string-array name="country_arrays">
+        <item>MS</item>
+        <item>US</item>
+        <item>IN</item>
+        <item>FR</item>
+        <item>IT</item>
+        <item>SI</item>
+        <item>NZ</item>
+        <item>IN</item>
+    </string-array>
+
+</resources>

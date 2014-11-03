@@ -33,8 +33,10 @@ public class TwilioDialer extends Activity implements OnClickListener,
 
 		setContentView(R.layout.main);
 
+		// initialize a Twilio Phone instance
 		phone = new TwilioPhone(getApplicationContext());
-
+		
+		// initialize the Number textpad
 		numberField = (EditText) findViewById(R.id.numberField);
 		Button cancelKey = (Button) findViewById(R.id.clearTextBtn);
 		cancelKey.setOnClickListener(this);
@@ -113,6 +115,14 @@ public class TwilioDialer extends Activity implements OnClickListener,
 			numberField.append("9");
 			numberField.requestFocus();
 			break;
+		case R.id.dialKeyPound:
+			numberField.append("#");
+			numberField.requestFocus();
+			break;
+		case R.id.dialKeyStar:
+			numberField.append("*");
+			numberField.requestFocus();
+			break;			
 		case R.id.buttonCall:
 			String phoneNumber = numberField.getText().toString();
 			Map<String, String> phoneNumberMap = new HashMap<String, String>();
@@ -135,7 +145,7 @@ public class TwilioDialer extends Activity implements OnClickListener,
 
 	@Override
 	public boolean onLongClick(View v) {
-		// TODO Auto-generated method stub
+		// On long click, clear the number 
 		String numberFieldText = "";
 		numberField.setText(numberFieldText);
 		return false;
