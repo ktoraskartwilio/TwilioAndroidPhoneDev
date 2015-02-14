@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
+<!--
  *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
  *
  *  Use of this software is subject to the terms and conditions of 
  *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
- -->
+-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">TwilioDialer</string>
@@ -22,5 +22,8 @@
     <string name="dialPadStar">*</string>
     <string name="callBtnTxt">Call</string>
     <string name="hangupBtnTxt">Hangup</string>
+    <string name="title_activity_custom_list">CustomListActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

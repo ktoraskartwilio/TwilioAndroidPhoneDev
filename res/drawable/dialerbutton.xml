@@ -1,36 +1,25 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?>
+<!--
  *  Copyright (c) 2011 by Twilio, Inc., all rights reserved.
  *
  *  Use of this software is subject to the terms and conditions of 
  *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
- -->
+-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" >
-        <shape android:shape="oval">
-            <solid
-                    android:color="#0099cc" />
-			<corners
-            android:bottomLeftRadius="20.0dip"
-            android:bottomRightRadius="20.0dip"
-            android:radius="20.0dip"
-            android:topLeftRadius="20.0dip"
-            android:topRightRadius="20.0dip" >
-			</corners>            
-        </shape>
-    </item>
-    <item>
-        <shape android:shape="oval">
-            <gradient
-                    android:startColor="#ffffff"
-                    android:endColor="#ffffff"
-                    />
-            <corners
-            android:bottomLeftRadius="20.0dip"
-            android:bottomRightRadius="20.0dip"
-            android:radius="20.0dip"
-            android:topLeftRadius="20.0dip"
-            android:topRightRadius="20.0dip" />
-        </shape>
-    </item>
+
+    <item android:state_pressed="true"><shape android:shape="oval">
+            <stroke android:width="0.5dp" android:color="#E0E0E0" />
+
+            <solid android:color="#0099cc" />
+
+            <corners android:bottomLeftRadius="20.0dip" android:bottomRightRadius="20.0dip" android:radius="20.0dip" android:topLeftRadius="20.0dip" android:topRightRadius="20.0dip" />
+        </shape></item>
+    <item><shape android:shape="oval">
+            <stroke android:width="0.5dp" android:color="#E0E0E0" />
+
+            <gradient android:endColor="#ffffff" android:startColor="#ffffff" />
+
+            <corners android:bottomLeftRadius="20.0dip" android:bottomRightRadius="20.0dip" android:radius="20.0dip" android:topLeftRadius="20.0dip" android:topRightRadius="20.0dip" />
+        </shape></item>
+
 </selector>

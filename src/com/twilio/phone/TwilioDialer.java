@@ -3,28 +3,47 @@
  *
  *  Use of this software is subject to the terms and conditions of 
  *  the Twilio Terms of Service located at http://www.twilio.com/legal/tos
+ *  
+ *  @author: Kedar Toraskar
+ *           Sr. Sales Engineer
+ *           Twilio Inc.
+ *  
  */
 
 package com.twilio.phone;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.twilio.phone.R;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class TwilioDialer extends Activity implements OnClickListener,
 		OnLongClickListener {
 	private TwilioPhone phone;
 	private EditText numberField;
+	Context context;
+	ListView list;
+	Dialog listDialog;
+	public TwilioPhone CustomListView = null;
+	public ArrayList<ListModel> CustomListViewValuesArr = new ArrayList<ListModel>();
+	private String selectedCountry = null;
 
 	@Override
 	public void onCreate(Bundle bundle) {
@@ -35,13 +54,17 @@ public class TwilioDialer extends Activity implements OnClickListener,
 
 		// initialize a Twilio Phone instance
 		phone = new TwilioPhone(getApplicationContext());
-		
+
 		// initialize the Number textpad
 		numberField = (EditText) findViewById(R.id.numberField);
 		Button cancelKey = (Button) findViewById(R.id.clearTextBtn);
 		cancelKey.setOnClickListener(this);
 		Button cancelKeyLongPress = (Button) findViewById(R.id.clearTextBtn);
 		cancelKeyLongPress.setOnLongClickListener(this);
+
+		// Typecasting the variable here
+		Button countrySelector = (Button) findViewById(R.id.countryCodeSpinner);
+		countrySelector.setOnClickListener(this);
 
 		// initialize dialPad buttons
 		Button dialPad0 = (Button) findViewById(R.id.dialKey0);
@@ -122,7 +145,7 @@ public class TwilioDialer extends Activity implements OnClickListener,
 		case R.id.dialKeyStar:
 			numberField.append("*");
 			numberField.requestFocus();
-			break;			
+			break;
 		case R.id.buttonCall:
 			String phoneNumber = numberField.getText().toString();
 			Map<String, String> phoneNumberMap = new HashMap<String, String>();
@@ -140,15 +163,57 @@ public class TwilioDialer extends Activity implements OnClickListener,
 
 				numberField.setText(numberFieldText);
 			}
+			break;
+		case R.id.countryCodeSpinner:
+			selectCountryDialog();
+			break;
+
 		}
 	}
 
 	@Override
 	public boolean onLongClick(View v) {
-		// On long click, clear the number 
+		// On long click, clear the number
 		String numberFieldText = "";
 		numberField.setText(numberFieldText);
 		return false;
+	}
+
+	/**
+	 * 
+	 */
+
+	public void selectCountryDialog() {
+
+		final Dialog dialog = new Dialog(TwilioDialer.this);
+		dialog.setContentView(R.layout.list_dialog);
+		dialog.setTitle("Select country");
+		ListView listView = (ListView) dialog
+				.findViewById(R.id.listview2dialog);
+
+		ArrayAdapter<String> ad = new ArrayAdapter<String>(this,
+				R.layout.list_dialogitem, R.id.singleItem,
+				Constants.getCountryNameAL());
+		listView.setAdapter(ad);
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+
+				selectedCountry = ((TextView) arg1
+						.findViewById(R.id.singleItem)).getText().toString();
+				
+				Button countrySelector = (Button) findViewById(R.id.countryCodeSpinner);
+				
+				countrySelector.setBackgroundResource(Constants.getImageFileName(selectedCountry));
+				dialog.dismiss();
+			}
+		});
+
+		dialog.show();
+
 	}
 
 }

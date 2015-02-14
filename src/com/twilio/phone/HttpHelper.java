@@ -26,63 +26,64 @@ import org.apache.http.params.HttpConnectionParams;
 
 import android.util.Log;
 
-public abstract class HttpHelper
-{
-    private static final String TAG = "HttpHelper";
+public abstract class HttpHelper {
+	private static final String TAG = "HttpHelper";
 
-    private static HttpClient httpClient;
+	private static HttpClient httpClient;
 
-    private static void ensureHttpClient()
-    {
-        if (httpClient != null)
-            return;
+	private static void ensureHttpClient() {
+		if (httpClient != null)
+			return;
 
-        BasicHttpParams params = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(params, 45000);
-        HttpConnectionParams.setSoTimeout(params, 30000);
+		BasicHttpParams params = new BasicHttpParams();
+		HttpConnectionParams.setConnectionTimeout(params, 45000);
+		HttpConnectionParams.setSoTimeout(params, 30000);
 
-        SchemeRegistry registry = new SchemeRegistry();
-        registry.register(new Scheme("http", new PlainSocketFactory(), 80));
-        try {
-            registry.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        } catch (Exception e) {
-            Log.w(TAG, "Unable to register HTTPS socket factory: " + e.getLocalizedMessage());
-        }
+		SchemeRegistry registry = new SchemeRegistry();
+		registry.register(new Scheme("http", new PlainSocketFactory(), 80));
+		try {
+			registry.register(new Scheme("https", SSLSocketFactory
+					.getSocketFactory(), 443));
+		} catch (Exception e) {
+			Log.w(TAG,
+					"Unable to register HTTPS socket factory: "
+							+ e.getLocalizedMessage());
+		}
 
-        ThreadSafeClientConnManager connManager = new ThreadSafeClientConnManager(params, registry);
-        httpClient = new DefaultHttpClient(connManager, params);
-    }
+		ThreadSafeClientConnManager connManager = new ThreadSafeClientConnManager(
+				params, registry);
+		httpClient = new DefaultHttpClient(connManager, params);
+	}
 
-    private static String stringFromInputStream(InputStream is) throws IOException
-    {
-        char[] buf = new char[1024];
-        StringBuilder out = new StringBuilder();
+	private static String stringFromInputStream(InputStream is)
+			throws IOException {
+		char[] buf = new char[1024];
+		StringBuilder out = new StringBuilder();
 
-        Reader in = new InputStreamReader(is, "UTF-8");
+		Reader in = new InputStreamReader(is, "UTF-8");
 
-        int bin;
-        while ((bin = in.read(buf, 0, buf.length)) >= 0) {
-            out.append(buf, 0, bin);
-        }
+		int bin;
+		while ((bin = in.read(buf, 0, buf.length)) >= 0) {
+			out.append(buf, 0, bin);
+		}
 
-        return out.toString();
-    }
+		return out.toString();
+	}
 
-    public static String httpGet(String url) throws Exception
-    {
-        ensureHttpClient();
+	public static String httpGet(String url) throws Exception {
+		ensureHttpClient();
 
-        HttpGet request = new HttpGet(url);
-        HttpResponse response = httpClient.execute(request);
-        if (response != null)
-        {
-            int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode == 200)
-                return stringFromInputStream(response.getEntity().getContent());
-            else
-                throw new Exception("Got error code " + statusCode + " from server");
-        }
+		HttpGet request = new HttpGet(url);
+		HttpResponse response = httpClient.execute(request);
+		if (response != null) {
+			int statusCode = response.getStatusLine().getStatusCode();
+			if (statusCode == 200)
+				return stringFromInputStream(response.getEntity().getContent());
+			else
+				throw new Exception("Got error code " + statusCode
+						+ " from server");
+		}
 
-        throw new Exception("Unable to connect to server");
-    }
+		throw new Exception("Unable to connect to server");
+	}
 }
